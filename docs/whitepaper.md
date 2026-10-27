@@ -1,6 +1,6 @@
 # Mutu: Whitepaper (Draft, October 2026)
 
-Mutu is a cryptocurrency designed to revive basement mining: small, quiet, home-run machines earning a fair share of every new coin. Not as charity. As the protocol's own payout rule. This draft describes the design as locked in spec v0.5.2. Items marked (v0.6) are decided, not yet implemented.
+Mutu is a cryptocurrency designed to revive basement mining: small, quiet, home-run machines earning a fair share of every new coin. Not as charity. As the protocol's own payout rule. This draft describes the design as locked in spec v0.5.2. Items marked (v0.6) are decided, not yet implemented. The v0.6 privacy package is dropped.
 
 ## Abstract
 
@@ -119,11 +119,11 @@ Mutu's security is proof-of-work among registered, metered identities. Stated ho
 - Tor-native networking and launch. Nodes can run entirely as Tor onion services. No public IP. No clearnet presence required. Genesis, software, and this paper are published through a v3 onion service. Mirrored by anyone. The founder publishes and operates under Tor from day one, Satoshi-style.
 - Residual risk, named. Absolute attack cost is small while the network and the coin's value are small. The safety condition is that participation grows ahead of price (~1,000+ eligible systems per $1 of coin price). A patient attacker who buys a genuine majority of real systems over many months cannot be stopped by any rule here. Only priced, slowed, exposed, and forked away. That is the honest limit of the design. The same limit Bitcoin has, reached by a different road.
 
-## 10. Privacy (v0.5.2 locked; v0.6 decided, not yet implemented)
+## 10. Privacy (v0.5.2 locked; v0.6 privacy package dropped)
 
 Locked: Tor-native operation. Anonymous attestation (no serial numbers on-chain). Mandatory per-epoch identity rotation. Money keys separated from mining keys.
 
-(v0.6, decided, not yet implemented): a four-layer transaction privacy package. Dandelion++ relay over Tor (network layer). Silent Payments (recipient unlinkability at zero on-chain cost). Confidential amounts via Pedersen commitments with Bulletproof range proofs (amounts hidden while total issuance stays publicly verifiable). Ring signatures ×16 (sender anonymity). This requires pivoting the transaction layer to UTXO. The mining layer above is unchanged. Issuance and payouts stay transparent by design. Citizens can audit the mint. Public mint, private money. Modelled cost: full privacy ≈ 2,600 bytes per transaction. ~111,000 transactions/day at a 2 MB block cap. ~1 second of verification per block on Pi-class hardware.
+(v0.6 privacy package, dropped): the four-layer transaction privacy package is out. Dandelion++ relay over Tor (network layer). Silent Payments (recipient unlinkability at zero on-chain cost). Confidential amounts via Pedersen commitments with Bulletproof range proofs (amounts hidden while total issuance stays publicly verifiable). Ring signatures ×16 (sender anonymity). The v0.6 scope that remains: UTXO transaction layer. 2 MB block cap. Lightning hooks. The mining layer above is unchanged. Issuance and payouts stay transparent by design. Citizens can audit the mint. Public mint. Transparent money at launch. Sender visible. Recipient visible. Amount visible. Privacy is deferred, not foreclosed. UTXO keeps the door open. Modelled cost for the dropped package: full privacy ≈ 2,600 bytes per transaction. ~111,000 transactions/day at a 2 MB block cap. ~1 second of verification per block on Pi-class hardware.
 
 ## 11. Launch gates
 
@@ -137,12 +137,12 @@ Mainnet launches only when all of these hold:
 
 ## 12. Roadmap status (October 2026)
 
-- Spec v0.5.2. Locked. Simulations (payouts, delegation, watt cap, issuance smoothing). Done. Testnet prototype with live chain, mempool transfers, and a Stratum bridge for real Bitaxe hardware. Running. Adversarial test pack 15/15 passing. Remaining before mainnet: peer-to-peer networking. Header validation. Anonymous-attestation group signatures. Second implementation. Vendor diversity. Audit. And v0.6 implementation.
+- Spec v0.5.2. Locked. Simulations (payouts, delegation, watt cap, issuance smoothing). Done. Testnet prototype with live chain, mempool transfers, and a Stratum bridge for real Bitaxe hardware. Running. Adversarial test pack 15/15 passing. Remaining before mainnet: peer-to-peer networking. Header validation. Anonymous-attestation group signatures. Second implementation. Vendor diversity. Audit. And v0.6 implementation (UTXO, 2 MB, Lightning hooks).
 
 ## References
 
 - Nakamoto, S. (2008). *Bitcoin: A Peer-to-Peer Electronic Cash System.*
 - Swartz, L. (2018). "What was Bitcoin, what will it be? The techno-economic imaginaries of a new money." *Cultural Studies* 32(4).
-- Monero Project. Ring signatures, RingCT, and permanent tail emission.
-- Bitcoin BIPs 152 (compact blocks), 157/158 (light-client filters), 352 (Silent Payments).
+- Monero Project. Permanent tail emission.
+- Bitcoin BIPs 152 (compact blocks), 157/158 (light-client filters).
 - Miller, A. et al. (2015). Nonoutsourceable puzzles (on preventing work delegation theft).
