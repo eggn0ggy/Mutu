@@ -11,6 +11,7 @@ Start with LAUNCH_GUIDE.md. Written for someone who doesn't code. Copy-paste the
 - The attack pack: RUN_TESTS.bat goes after a throwaway copy of the testnet. Schedule soak. Conservation checks. Transfer validation. Mempool forgery. Double-spends. Replays. Dividend and identity exclusions. Corrupt saves. Killing and restarting the live chain mid-run. Never touches the real saved chain in data/. The report lands in output/test_report.txt.
 - output/ is made at runtime. explorer.html is the block explorer, refreshes itself. stratum_shares.json is the share log.
 - data/ is the save. chain_state.json holds the whole chain state plus all system keys, rewritten atomically after every window. Live mode picks up where it stopped. Checked Oct 22, 2026: ran to height 120, stopped, relaunched. Picked up at 120 with the same SYSTEM #1 address, kept going to 200. START_FRESH.bat wipes the save (with a warning) for a fresh start.
+- docs/ holds the reading. whitepaper.md makes the plain-language case. spec-v0.5.2.md is the full rulebook. citizens-guide.md is the small miner's guide.
 
 ## Run it
 
